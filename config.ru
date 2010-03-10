@@ -1,2 +1,2 @@
-require 'mcbean'
+require 'mcbean-app'
 run Sinatra::Application
