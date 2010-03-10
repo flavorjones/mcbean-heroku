@@ -14,7 +14,7 @@ class Markdownify
     result = @app.call(env)
     if env["REQUEST_URI"] == "/fetch"
       result[1] = {"Content-Type" => "text/plain"}
-      result[2] = McBean.document(result[2]).to_markdown
+      result[2] = McBean.document(result[2].first).to_markdown
     end
     result
   end
@@ -27,5 +27,9 @@ get "/" do
 end
 
 post "/fetch" do
-  open params['url']
+  begin
+    open(params['url']).read
+  rescue
+    "Could not fetch the URL '#{params['url']}'"
+  end
 end
