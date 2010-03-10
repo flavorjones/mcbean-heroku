@@ -1,1 +1,2 @@
 mcbean --version '>= 0.1'
+exceptional --version '>= 2.0.10'
