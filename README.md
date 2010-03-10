@@ -8,5 +8,6 @@ The gem source is available at [http://github.com/flavorjones/mcbean](http://git
 
 To try it out, point your browser at [http://mcbean.heroku.com/](http://mcbean.heroku.com/).
 
-Many thanks to [Heroku](http://heroku.com/) for such a great, free hosting service.
+Thanks to [Heroku](http://heroku.com/) for providing free hosting services.
+
 
