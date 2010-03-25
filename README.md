@@ -10,4 +10,4 @@ To try it out, point your browser at [http://mcbean.heroku.com/](http://mcbean.h
 
 Thanks to [Heroku](http://heroku.com/) for providing free hosting services.
 
-
+(running mcbean 0.2.0)
