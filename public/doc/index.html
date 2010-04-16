@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>mcbean-0.3.0 Documentation</title>
+
+	<link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body class="indexpage">
+
+	
+	<h1>mcbean-0.3.0 Documentation</h1>
+
+	
+	<div id="main">
+		
+<ul>
+<li><p>
+<a
+href="http://github.com/flavorjones/mcbean">github.com/flavorjones/mcbean</a>
+</p>
+</li>
+<li><p>
+<a href="http://mcbean.heroku.com">mcbean.heroku.com</a> (live demo)
+</p>
+</li>
+</ul>
+<h2>Description</h2>
+<p>
+<a href="McBean.html">McBean</a> can convert documents from one format to
+another. <a href="McBean.html">McBean</a> currently supports:
+</p>
+<ul>
+<li><p>
+HTML
+</p>
+</li>
+<li><p>
+Markdown (a subset)
+</p>
+</li>
+<li><p>
+Textile (a subset)
+</p>
+</li>
+</ul>
+<p>
+with the help of Loofah, Nokogiri, RDiscount and RedCloth.
+</p>
+<p>
+&#8220;You can&#8217;t teach a Sneetch.&#8221; &#8212; Sylvester McMonkey
+<a href="McBean.html">McBean</a>
+</p>
+<h2>Features</h2>
+<ul>
+<li><p>
+Transforms HTML into Markdown, and Markdown into HTML (thanks to
+RDiscount).
+</p>
+</li>
+<li><p>
+Transforms HTML into Textile, and Textile into HTML (thanks to RedCloth).
+</p>
+</li>
+<li><p>
+Transforms Textile into Markdown, and Markdown into Textile.
+</p>
+</li>
+<li><p>
+Emitted HTML is sanitized (thanks to Loofah).
+</p>
+</li>
+<li><p>
+Fancy-pants command line utility, &#8220;mcbean&#8221;.
+</p>
+</li>
+</ul>
+<h2>Problems</h2>
+<ul>
+<li><p>
+Only supports a limited subset of Markdown and Textile. Patches welcome.
+</p>
+</li>
+</ul>
+<h2>Synopsis</h2>
+<p>
+Wrap your document (which can be either a String or an IO object):
+</p>
+<pre>
+  mcbean = McBean.fragment(your_html_fragment)
+  mcbean = McBean.document(your_html_document)
+  mcbean = McBean.markdown(your_markdown)
+  mcbean = McBean.textile(your_textile)
+</pre>
+<p>
+And then generate the desired markup format:
+</p>
+<pre>
+  mcbean.to_html
+  mcbean.to_markdown
+  mcbean.to_textile
+</pre>
+<p>
+Also, <tt>mcbean</tt> provides a command-line utility installed into your
+gem path:
+</p>
+<pre>
+  $ mcbean --html=&quot;http://en.wikipedia.org/wiki/The_Sneetches_and_Other_Stories&quot; --to-markdown
+  $ mcbean --markdown=&quot;treetop-1.4.2/doc/grammar_composition.markdown&quot; --to-textile
+</pre>
+<p>
+You can try out <a href="McBean.html">McBean</a> at the live demo site: <a
+href="http://mcbean.heroku.com">mcbean.heroku.com</a>
+</p>
+<h3>Side Note: Fragments vs Documents</h3>
+<p>
+Generally speaking, if you expect to have a DOCTYPE and a single root
+&lt;html&gt; node, you have a <b>document</b>. If you don&#8217;t expect to
+have a single root node, you have a <b>fragment</b>.
+</p>
+<h2>Requirements</h2>
+<ul>
+<li><p>
+Loofah >= 0.4.7 (and thusly Nokogiri)
+</p>
+</li>
+<li><p>
+RDiscount >= 1.3.4
+</p>
+</li>
+<li><p>
+RedCloth >= 4.0.0
+</p>
+</li>
+</ul>
+<h2>Install</h2>
+<ul>
+<li><p>
+sudo gem install mcbean
+</p>
+</li>
+</ul>
+<h2>Shout Outs</h2>
+<p>
+Thanks to David Loren Parsons and Ryan Tomayko for RDiscount.
+</p>
+<p>
+Thanks to Jason Garber for RedCloth.
+</p>
+<h2>License</h2>
+<p>
+(The MIT License)
+</p>
+<p>
+Copyright &#169; 2010 Mike Dalessio
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8216;Software&#8217;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+
+	</div>
+	
+
+	
+	
+	<h2>Files</h2>
+	<ul>
+		
+			<li class="file"><a href="CHANGELOG_rdoc.html">CHANGELOG.rdoc</a></li>
+		
+			<li class="file"><a href="Manifest_txt.html">Manifest.txt</a></li>
+		
+			<li class="file"><a href="README_rdoc.html">README.rdoc</a></li>
+		
+	</ul>
+	
+
+	<h2 id="classes">Classes/Modules</h2>
+	<ul>
+		
+		<li class="class"><a href="McBean.html">McBean</a></li>
+		
+		<li class="class"><a href="McBean.html">McBean</a></li>
+		
+	</ul>
+
+	<h2 id="methods">Methods</h2>
+	<ul>
+		
+			<li><a href="McBean.html#M000001">::document &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000001">::document &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000002">::formats &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000002">::formats &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000000">::fragment &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000000">::fragment &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000005">::markdown &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000005">::markdown &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000008">::textile &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000008">::textile &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000003">#to_html &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000003">#to_html &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000006">#to_markdown &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000006">#to_markdown &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000009">#to_textile &mdash; McBean</a></li>
+		
+			<li><a href="McBean.html#M000009">#to_textile &mdash; McBean</a></li>
+		
+	</ul>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
