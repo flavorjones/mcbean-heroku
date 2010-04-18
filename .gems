@@ -1,1 +1,2 @@
-mcbean --version '>= 0.1'
+mcbean --version '>= 0.3.0'
+
