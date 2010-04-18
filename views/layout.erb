@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="doc/rdoc.css" type="text/css" media="screen" />    
+  </head>
+  <body style="margin:1em;">
+    <h1>McBean</h1>
+    <h2> A Ruby library for converting between document formats.</h2>
+    <p>
+      Check out the <a href="doc/index.html">documentation</a>, already!
+    </p>
+    <br>
+    <p>
+      <form method="post" action="/fetch">
+        Enter a URL:
+        <input name="url" maxlength="256" value="<%= @url %>"/>
+        <select name="format">
+          <% (McBean.formats - ["html"]).each do |format| %>
+            <option value="<%= format %>">Render as <%= format %></option>
+          <% end %>
+        </select>
+        <button type="submit">GO</button>
+      </form>
+    </p>
+    <%= yield %>
+    <p>
+      <small>
+        This demonstration app uses McBean to implement a filter,
+        transforming the HTTP response from HTML to the requested
+        format.<br>
+
+        Powered
+        by <a href="http://github.com/flavorjones/mcbean">McBean</a>, <a href="http://github.com/flavorjones/loofah">Loofah</a>
+        and <a href="http://github.com/tenderlove/nokogiri">Nokogiri</a>. Source
+        code
+        at <a href="http://github.com/flavorjones/mcbean-heroku">http://github.com/flavorjones/mcbean-heroku</a>.
+      </small>
+    </p>
+    <p>
+      <small>
+        Thanks to <a href="http://heroku.com/">Heroku</a> for providing free hosting services.
+      </small>
+    </p>
+  </body>
+</html>
