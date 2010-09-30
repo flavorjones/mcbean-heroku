@@ -128,29 +128,20 @@ with the help of Loofah, Nokogiri, RDiscount, RedCloth and Creole.
 <h2>Features</h2>
 <ul>
 <li><p>
-Transforms HTML into Markdown, and Markdown into HTML (with help from
-RDiscount).
+Transforms HTML into Markdown
 </p>
 </li>
 <li><p>
-Transforms HTML into Textile, and Textile into HTML (with help from
-RedCloth).
+Transforms HTML into Textile
 </p>
 </li>
 <li><p>
-Transforms HTML into Creole, and Creole into HTML (with help from Creole).
+Transforms HTML into Creole
 </p>
 </li>
 <li><p>
-Textile <-> Markdown
-</p>
-</li>
-<li><p>
-Textile <-> Creole
-</p>
-</li>
-<li><p>
-Creole <-> Markdown
+Textile <-> Markdown, Textile <-> Creole, Creole <-> Markdown (thanks to
+RDiscount, RedCloth and Creole)
 </p>
 </li>
 <li><p>
@@ -171,8 +162,23 @@ welcome.
 </li>
 </ul>
 <h2>Synopsis</h2>
+<h3>Short version</h3>
 <p>
-Wrap your document (which can be either a String or an IO object):
+To convert HTML into Markdown, for example:
+</p>
+<pre>
+  McBean.fragment(html).to_markdown
+</pre>
+<p>
+Or get fancy and convert Textile into Markdown:
+</p>
+<pre>
+  McBean.textile(textile).to_markdown
+</pre>
+<h3>Longer version</h3>
+<p>
+Create a <a href="McBean.html">McBean</a> from your string, using the
+appropriate constructor:
 </p>
 <pre>
   mcbean = McBean.fragment your_html_fragment
@@ -210,6 +216,7 @@ And then generate the desired markup format:
   mcbean.to_textile
   mcbean.to_creole
 </pre>
+<h3>Command Line</h3>
 <p>
 Also, <tt>mcbean</tt> provides a command-line utility installed into your
 gem path:
