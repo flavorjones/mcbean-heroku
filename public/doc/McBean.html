@@ -38,14 +38,17 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="./lib/mcbean_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/mcbean.rb">lib/mcbean.rb</a></li>
+						<li><a href="./lib/mcbean/creole_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/mcbean/creole.rb">lib/mcbean/creole.rb</a></li>
 					
 						<li><a href="./lib/mcbean/markdown_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/mcbean/markdown.rb">lib/mcbean/markdown.rb</a></li>
 					
 						<li><a href="./lib/mcbean/textile_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/mcbean/textile.rb">lib/mcbean/textile.rb</a></li>
+					
+						<li><a href="./lib/mcbean_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/mcbean.rb">lib/mcbean.rb</a></li>
 					
 					</ul>
 				</div>
@@ -75,21 +78,25 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000001">::document</a></li>
+					<li><a href="#method-c-creole">::creole</a></li>
 					
-					<li><a href="#M000002">::formats</a></li>
+					<li><a href="#method-c-document">::document</a></li>
 					
-					<li><a href="#M000000">::fragment</a></li>
+					<li><a href="#method-c-formats">::formats</a></li>
 					
-					<li><a href="#M000005">::markdown</a></li>
+					<li><a href="#method-c-fragment">::fragment</a></li>
 					
-					<li><a href="#M000008">::textile</a></li>
+					<li><a href="#method-c-markdown">::markdown</a></li>
 					
-					<li><a href="#M000003">#to_html</a></li>
+					<li><a href="#method-c-textile">::textile</a></li>
 					
-					<li><a href="#M000006">#to_markdown</a></li>
+					<li><a href="#method-i-to_creole">#to_creole</a></li>
 					
-					<li><a href="#M000009">#to_textile</a></li>
+					<li><a href="#method-i-to_html">#to_html</a></li>
+					
+					<li><a href="#method-i-to_markdown">#to_markdown</a></li>
+					
+					<li><a href="#method-i-to_textile">#to_textile</a></li>
 					
 				</ul>
 			</div>
@@ -191,8 +198,47 @@ Minimum required version of Loofah
 			<h3 class="section-header">Public Class Methods</h3>
 
 		
+			<div id="creole-method" class="method-detail ">
+				<a name="method-c-creole"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">creole</span><span
+						class="method-args">(string_or_io)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a <a href="McBean.html">McBean</a> from a Creole document string (or
+IO object)
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="creole-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/mcbean/creole.rb, line 11</span>
+11:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">McBean</span>.<span class="ruby-identifier">creole</span> <span class="ruby-identifier">string_or_io</span>
+12:     <span class="ruby-identifier">mcbean</span> = <span class="ruby-identifier">new</span>
+13:     <span class="ruby-identifier">mcbean</span>.<span class="ruby-identifier">__creole__</span> = <span class="ruby-constant">McBean</span><span class="ruby-operator">::</span><span class="ruby-constant">Creolize</span><span class="ruby-operator">::</span><span class="ruby-constant">Antidote</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">read</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">string_or_io</span>)
+14:     <span class="ruby-identifier">mcbean</span>
+15:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
 			<div id="document-method" class="method-detail ">
-				<a name="M000001"></a>
+				<a name="method-c-document"></a>
 
 				<div class="method-heading">
 				
@@ -235,7 +281,7 @@ on HTML fragments and documents.
 
 		
 			<div id="formats-method" class="method-detail ">
-				<a name="M000002"></a>
+				<a name="method-c-formats"></a>
 
 				<div class="method-heading">
 				
@@ -271,7 +317,7 @@ Returns an array of formats that <a href="McBean.html">McBean</a> supports.
 
 		
 			<div id="fragment-method" class="method-detail ">
-				<a name="M000000"></a>
+				<a name="method-c-fragment"></a>
 
 				<div class="method-heading">
 				
@@ -314,7 +360,7 @@ on HTML fragments and documents.
 
 		
 			<div id="markdown-method" class="method-detail ">
-				<a name="M000005"></a>
+				<a name="method-c-markdown"></a>
 
 				<div class="method-heading">
 				
@@ -353,7 +399,7 @@ Create a <a href="McBean.html">McBean</a> from a Markdown document string
 
 		
 			<div id="textile-method" class="method-detail ">
-				<a name="M000008"></a>
+				<a name="method-c-textile"></a>
 
 				<div class="method-heading">
 				
@@ -397,8 +443,49 @@ Create a <a href="McBean.html">McBean</a> from a Textile document string
 			<h3 class="section-header">Public Instance Methods</h3>
 
 		
+			<div id="to-creole-method" class="method-detail ">
+				<a name="method-i-to_creole"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_creole</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generate a Creole string representation of the McBeaned document.
+</p>
+<p>
+So you can convert documents in other formats to Creole as follows:
+</p>
+<pre>
+  McBean.fragment(File.read(path_to_html_file)).to_creole</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="to-creole-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/mcbean/creole.rb, line 24</span>
+24:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_creole</span>
+25:     <span class="ruby-identifier">__creole__</span>.<span class="ruby-identifier">to_s</span>
+26:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
 			<div id="to-html-method" class="method-detail ">
-				<a name="M000003"></a>
+				<a name="method-i-to_html"></a>
 
 				<div class="method-heading">
 				
@@ -439,7 +526,7 @@ So you can convert documents in other formats to HTML as follows:
 
 		
 			<div id="to-markdown-method" class="method-detail ">
-				<a name="M000006"></a>
+				<a name="method-i-to_markdown"></a>
 
 				<div class="method-heading">
 				
@@ -480,7 +567,7 @@ So you can convert documents in other formats to Markdown as follows:
 
 		
 			<div id="to-textile-method" class="method-detail ">
-				<a name="M000009"></a>
+				<a name="method-i-to_textile"></a>
 
 				<div class="method-heading">
 				

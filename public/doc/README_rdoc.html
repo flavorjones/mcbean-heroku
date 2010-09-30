@@ -6,7 +6,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>File: README.rdoc [mcbean-0.3.0 Documentation]</title>
+	<title>File: README.rdoc [mcbean-0.4.0 Documentation]</title>
 
 	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
 
@@ -85,6 +85,12 @@ href="http://github.com/flavorjones/mcbean">github.com/flavorjones/mcbean</a>
 </p>
 </li>
 <li><p>
+<a
+href="http://mcbean.heroku.com/doc/index.html">mcbean.heroku.com/doc/index.html</a>
+(rdocs)
+</p>
+</li>
+<li><p>
 <a href="http://mcbean.heroku.com">mcbean.heroku.com</a> (live demo)
 </p>
 </li>
@@ -107,9 +113,13 @@ Markdown (a subset)
 Textile (a subset)
 </p>
 </li>
+<li><p>
+Creole (a subset)
+</p>
+</li>
 </ul>
 <p>
-with the help of Loofah, Nokogiri, RDiscount and RedCloth.
+with the help of Loofah, Nokogiri, RDiscount, RedCloth and Creole.
 </p>
 <p>
 &#8220;You can&#8217;t teach a Sneetch.&#8221; &#8212; Sylvester McMonkey
@@ -118,16 +128,29 @@ with the help of Loofah, Nokogiri, RDiscount and RedCloth.
 <h2>Features</h2>
 <ul>
 <li><p>
-Transforms HTML into Markdown, and Markdown into HTML (thanks to
+Transforms HTML into Markdown, and Markdown into HTML (with help from
 RDiscount).
 </p>
 </li>
 <li><p>
-Transforms HTML into Textile, and Textile into HTML (thanks to RedCloth).
+Transforms HTML into Textile, and Textile into HTML (with help from
+RedCloth).
 </p>
 </li>
 <li><p>
-Transforms Textile into Markdown, and Markdown into Textile.
+Transforms HTML into Creole, and Creole into HTML (with help from Creole).
+</p>
+</li>
+<li><p>
+Textile <-> Markdown
+</p>
+</li>
+<li><p>
+Textile <-> Creole
+</p>
+</li>
+<li><p>
+Creole <-> Markdown
 </p>
 </li>
 <li><p>
@@ -142,7 +165,8 @@ Fancy-pants command line utility, &#8220;mcbean&#8221;.
 <h2>Problems</h2>
 <ul>
 <li><p>
-Only supports a limited subset of Markdown and Textile. Patches welcome.
+Only supports a limited subset of Markdown, Textile and Creole. Patches
+welcome.
 </p>
 </li>
 </ul>
@@ -151,10 +175,31 @@ Only supports a limited subset of Markdown and Textile. Patches welcome.
 Wrap your document (which can be either a String or an IO object):
 </p>
 <pre>
-  mcbean = McBean.fragment(your_html_fragment)
-  mcbean = McBean.document(your_html_document)
-  mcbean = McBean.markdown(your_markdown)
-  mcbean = McBean.textile(your_textile)
+  mcbean = McBean.fragment your_html_fragment
+</pre>
+<p>
+or
+</p>
+<pre>
+  mcbean = McBean.document your_html_document
+</pre>
+<p>
+or
+</p>
+<pre>
+  mcbean = McBean.markdown your_markdown
+</pre>
+<p>
+or
+</p>
+<pre>
+  mcbean = McBean.textile your_textile
+</pre>
+<p>
+or
+</p>
+<pre>
+  mcbean = McBean.creole your_creole
 </pre>
 <p>
 And then generate the desired markup format:
@@ -163,6 +208,7 @@ And then generate the desired markup format:
   mcbean.to_html
   mcbean.to_markdown
   mcbean.to_textile
+  mcbean.to_creole
 </pre>
 <p>
 Also, <tt>mcbean</tt> provides a command-line utility installed into your
@@ -189,11 +235,15 @@ Loofah >= 0.4.7 (and thusly Nokogiri)
 </p>
 </li>
 <li><p>
-RDiscount >= 1.3.4
+RDiscount >= 1.6.0
 </p>
 </li>
 <li><p>
-RedCloth >= 4.0.0
+RedCloth >= 4.2.0
+</p>
+</li>
+<li><p>
+Creole >= 0.3.7
 </p>
 </li>
 </ul>
@@ -210,6 +260,9 @@ Thanks to David Loren Parsons and Ryan Tomayko for RDiscount.
 </p>
 <p>
 Thanks to Jason Garber for RedCloth.
+</p>
+<p>
+Thanks to Lars Christensen and Daniel Mendler for Creole.
 </p>
 <h2>License</h2>
 <p>
